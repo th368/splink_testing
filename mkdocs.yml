@@ -108,6 +108,7 @@ nav:
       - 7. Quality assurance: "demos/07_Quality_assurance.ipynb"
   - Examples:
       - Examples index: "examples_index.md"
+      - Test: "example_md.md"
       - DuckDB:
         - Deduplicate 50k rows historical persons: "demos/example_deduplicate_50k_synthetic.ipynb"
         - Linking financial transactions: "demos/example_transactions.ipynb"
