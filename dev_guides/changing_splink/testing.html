@@ -1,0 +1,2395 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="build_docs_locally.html">
+      
+      
+        <link rel="next" href="releases.html">
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Testing - Splink</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#testing-in-splink" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Splink" class="md-header__button md-logo" aria-label="Splink" data-md-component="logo">
+      
+  <img src="../../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Splink
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Testing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/moj-analytical-services/splink" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Splink" class="md-nav__button md-logo" aria-label="Splink" data-md-component="logo">
+      
+  <img src="../../img/favicon.ico" alt="logo">
+
+    </a>
+    Splink
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/moj-analytical-services/splink" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installations.html" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/00_Tutorial_Introduction.html" class="md-nav__link">
+        0. Tutorial introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/01_Prerequisites.html" class="md-nav__link">
+        1. Data prep prerequisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/02_Exploratory_analysis.html" class="md-nav__link">
+        2. Exploratory analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/03_Blocking.html" class="md-nav__link">
+        3. Blocking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/04_Estimating_model_parameters.html" class="md-nav__link">
+        4. Estimating model parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/05_Predicting_results.html" class="md-nav__link">
+        5. Predicting results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/06_Visualising_predictions.html" class="md-nav__link">
+        6. Visualising predictions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/07_Quality_assurance.html" class="md-nav__link">
+        7. Quality assurance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples_index.html" class="md-nav__link">
+        Examples index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          DuckDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          DuckDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_deduplicate_50k_synthetic.html" class="md-nav__link">
+        Deduplicate 50k rows historical persons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_transactions.html" class="md-nav__link">
+        Linking financial transactions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_link_only.html" class="md-nav__link">
+        Linking two tables of persons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_real_time_record_linkage.html" class="md-nav__link">
+        Real time record linkage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_accuracy_analysis_from_labels_column.html" class="md-nav__link">
+        QA from ground truth column
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_pairwise_labels.html" class="md-nav__link">
+        Estimating m probabilities from labels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_quick_and_dirty_persons.html" class="md-nav__link">
+        Quick and dirty persons model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_febrl3.html" class="md-nav__link">
+        Febrl3 Dedupe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_febrl4.html" class="md-nav__link">
+        Febrl4 link-only
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          PySpark
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          PySpark
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demos/example_simple_pyspark.html" class="md-nav__link">
+        Deduplication using Pyspark
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Topic Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Topic Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/backends.html" class="md-nav__link">
+        Splink's SQL backends - Spark, DuckDB etc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/link_type.html" class="md-nav__link">
+        Link type - linking vs deduping
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/querying_splink_results.html" class="md-nav__link">
+        Retrieving and querying Splink results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/feature_engineering.html" class="md-nav__link">
+        Feature Engineering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Comparing Records
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Comparing Records
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/customising_comparisons.html" class="md-nav__link">
+        Defining and customising comparisons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/comparison_templates.html" class="md-nav__link">
+        Out-of-the-box comparisons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5_3" id="__nav_5_5_3_label" tabindex="0">
+          Comparing strings
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Comparing strings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/choosing_comparators.html" class="md-nav__link">
+        Choosing comparators and thresholds
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/comparators.html" class="md-nav__link">
+        String comparators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/phonetic.html" class="md-nav__link">
+        Phonetic transformations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/term-frequency.html" class="md-nav__link">
+        Term-Frequency adjustments
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          Performance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Performance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/drivers_of_performance.html" class="md-nav__link">
+        Run times, performance and linking large data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/blocking_rules.html" class="md-nav__link">
+        Blocking rules for prediction vs estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/optimising_spark.html" class="md-nav__link">
+        Optimising Spark performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic_guides/salting.html" class="md-nav__link">
+        Salting blocking rules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          Linker API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Linker API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linker.html" class="md-nav__link">
+        Full API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linkerexp.html" class="md-nav__link">
+        Exploratory analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linkerest.html" class="md-nav__link">
+        Estimating model parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linkerpred.html" class="md-nav__link">
+        Predicting results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linkerqa.html" class="md-nav__link">
+        Visualisation and quality assurance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../em_training_session.html" class="md-nav__link">
+        EM Training Session API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SplinkDataFrame.html" class="md-nav__link">
+        SplinkDataFrame API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+          Comparisons API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparison.html" class="md-nav__link">
+        Comparison
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparison_level.html" class="md-nav__link">
+        Comparison Level
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+          Comparisons Library API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons Library API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparison_library.html" class="md-nav__link">
+        Comparison Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparison_template_library.html" class="md-nav__link">
+        Comparison Template Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparison_level_library.html" class="md-nav__link">
+        Comparison Level Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparison_level_composition.html" class="md-nav__link">
+        Comparison Composition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settingseditor/editor.html" class="md-nav__link">
+        Settings Editor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings_dict_guide.html" class="md-nav__link">
+        Settings dictionary reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Developers' guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Developers' guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+          Making Changes to Splink
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Making Changes to Splink
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="building_env_locally.html" class="md-nav__link">
+        Building a Virtual Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lint.html" class="md-nav__link">
+        Linting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build_docs_locally.html" class="md-nav__link">
+        Building Docs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="testing.html" class="md-nav__link md-nav__link--active">
+        Testing
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests-locally" class="md-nav__link">
+    Running tests locally
+  </a>
+  
+    <nav class="md-nav" aria-label="Running tests locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests-for-specific-backends-or-backend-groups" class="md-nav__link">
+    Running tests for specific backends or backend groups
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tests-in-ci" class="md-nav__link">
+    Tests in CI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    Writing tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-tests" class="md-nav__link">
+    Core tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-agnostic-testing" class="md-nav__link">
+    Backend-agnostic testing
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend-agnostic testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excluding-some-backends" class="md-nav__link">
+    Excluding some backends
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-specific-tests" class="md-nav__link">
+    Backend-specific tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="releases.html" class="md-nav__link">
+        Releasing a Package Version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching.html" class="md-nav__link">
+        Caching and pipelining
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug_modes.html" class="md-nav__link">
+        Understanding and debugging Splink
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spark_pipelining_and_caching.html" class="md-nav__link">
+        Spark caching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transpilation.html" class="md-nav__link">
+        Transpilation using sqlglot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6" id="__nav_9_6_label" tabindex="0">
+          Comparisons and comparison levels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons and comparison levels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparisons/new_library_comparisons_and_levels.html" class="md-nav__link">
+        Creating new comparisons and comparison levels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparisons/extending_library_comparisons_and_levels.html" class="md-nav__link">
+        Extending existing comparisons and comparison levels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udfs.html" class="md-nav__link">
+        User-Defined Functions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests-locally" class="md-nav__link">
+    Running tests locally
+  </a>
+  
+    <nav class="md-nav" aria-label="Running tests locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests-for-specific-backends-or-backend-groups" class="md-nav__link">
+    Running tests for specific backends or backend groups
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tests-in-ci" class="md-nav__link">
+    Tests in CI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    Writing tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-tests" class="md-nav__link">
+    Core tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-agnostic-testing" class="md-nav__link">
+    Backend-agnostic testing
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend-agnostic testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excluding-some-backends" class="md-nav__link">
+    Excluding some backends
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-specific-tests" class="md-nav__link">
+    Backend-specific tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">Testing</span>
+      
+    
+      
+      
+        <span class="md-tag">Pytest</span>
+      
+    
+      
+      
+        <span class="md-tag">Backends</span>
+      
+    
+  </nav>
+
+
+
+  
+  
+
+
+<h1 id="testing-in-splink">Testing in Splink<a class="headerlink" href="#testing-in-splink" title="Permanent link">&para;</a></h1>
+<p>Tests in Splink make use of the <a href="https://docs.pytest.org">pytest</a> framework. You can find the tests themselves in <a href="https://github.com/moj-analytical-services/splink/tree/master/tests">the tests folder</a>.</p>
+<p>Splink tests can be broadly categorised into three sets:</p>
+<ul>
+<li><strong>'Core' tests</strong> - these are tests which test some specific bit of functionality which does not depend on any specific SQL dialect. They are usually unit tests - examples are testing <a href="https://github.com/moj-analytical-services/splink/blob/master/tests/test_input_column.py"><code>InputColumn</code></a> and testing the <a href="https://github.com/moj-analytical-services/splink/blob/master/tests/test_lat_long_distance.py">latitude-longitude distance calculation</a>.</li>
+<li><strong>Backend-agnostic tests</strong> - these are tests which run against some SQL backend, but which are written in such a way that they can run against many backends by making use of the <a href="#backend-agnostic-testing">backend-agnostic testing framework</a>. The majority of tests are of this type.</li>
+<li><strong>Backend-specific tests</strong> - these are tests which run against a specific SQL backend, and test some feature particular to this backend. There are not many of these, as Splink is designed to run very similarly independent of the backend used.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>We currently do not have support for testing the <code>athena</code> backend, due to the complication of needing a connection to an AWS account. All other backends have testing available.</p>
+</div>
+<h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<h3 id="running-tests-locally">Running tests locally<a class="headerlink" href="#running-tests-locally" title="Permanent link">&para;</a></h3>
+<p>To run tests locally, simply run:
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/
+</code></pre></div>
+or alternatively
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>tests/
+</code></pre></div></p>
+<p>To run a single test file, append the filename to the <code>tests/</code> folder call, for example:
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>tests/test_u_train.py
+</code></pre></div>
+or for a single test, additionally append the test name after a pair of colons, as:
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>tests/test_u_train.py::test_u_train_multilink
+</code></pre></div></p>
+<details class="tip">
+<summary>Further useful pytest options</summary>
+<p>There may be many warnings emitted, for instance by library dependencies, cluttering your output in which case you can use <code>--disable-pytest-warnings</code> or <code>-W ignore</code> so that these will not be displayed. Some additional command-line options that may be useful:</p>
+<ul>
+<li><code>-s</code> to disable output capture, so that test output is displayed in the terminal in all cases</li>
+<li><code>-v</code> for verbose mode, where each test instance will be displayed on a separate line with status</li>
+<li><code>-q</code> for quiet mode, where output is extremely minimal</li>
+<li><code>-x</code> to fail on first error/failure rather than continuing to run all selected tests<ul>
+<li></li>
+</ul>
+</li>
+<li><code>-m some_mark</code> run only those tests marked with <code>some_mark</code> - see <a href="#selecting-sets-of-tests">below</a> for useful options here</li>
+</ul>
+<p>For instance usage might be:
+<div class="highlight"><pre><span></span><code><span class="c1"># ignore warnings, display output</span>
+pytest<span class="w"> </span>-W<span class="w"> </span>ignore<span class="w"> </span>-s<span class="w"> </span>tests/
+</code></pre></div></p>
+<p>or
+<div class="highlight"><pre><span></span><code><span class="c1"># ignore warnings, verbose output, fail on first error/failure</span>
+pytest<span class="w"> </span>-W<span class="w"> </span>ignore<span class="w"> </span>-v<span class="w"> </span>-x<span class="w"> </span>tests/
+</code></pre></div></p>
+<p>You can find a host of other available options using pytest's in-built help:
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>-h
+</code></pre></div></p>
+</details>
+<h4 id="running-tests-for-specific-backends-or-backend-groups">Running tests for specific backends or backend groups<a class="headerlink" href="#running-tests-for-specific-backends-or-backend-groups" title="Permanent link">&para;</a></h4>
+<p>You may wish to run tests relating to to specific backends, tests which are backend-independent, or any combinations of these. Splink allows for various combinations by making use of <code>pytest</code>'s <a href="https://docs.pytest.org/en/latest/example/markers.html"><code>mark</code> feature</a>.</p>
+<p>If when you invoke pytest you pass no marks explicitly, there will be an implicit mark of <code>default</code>, as per the <a href="https://github.com/moj-analytical-services/splink/blob/master/pyproject.toml">pyproject.toml pytest.ini configuration</a>.</p>
+<p>The available options are:</p>
+<h5 id="run-core-tests">Run core tests<a class="headerlink" href="#run-core-tests" title="Permanent link">&para;</a></h5>
+<p>Option for running only the backend-independent 'core' tests:</p>
+<ul>
+<li><code>pytest tests/ -m core</code> - run only the 'core' tests, meaning those without dialect-dependence. In practice this means any test that hasn't been decorated using <code>mark_with_dialects_excluding</code> or <code>mark_with_dialects_including</code>.</li>
+</ul>
+<h5 id="run-tests-on-a-specific-backend">Run tests on a specific backend<a class="headerlink" href="#run-tests-on-a-specific-backend" title="Permanent link">&para;</a></h5>
+<p>Options for running tests on one backend only - this includes tests written <a href="#tests-for-specific-backends">specifically for that backend</a>, as well as <a href="#backend-agnostic-testing">backend-agnostic tests</a> supported for that backend.</p>
+<ul>
+<li><code>pytest tests/ -m duckdb</code> - run all <code>duckdb</code> tests, and all <code>core</code> tests<ul>
+<li>&amp; similarly for other dialects</li>
+</ul>
+</li>
+<li><code>pytest tests/ -m duckdb_only</code> - run all <code>duckdb</code> tests only, and <em>not</em> the <code>core</code> tests<ul>
+<li>&amp; similarly for other dialects</li>
+</ul>
+</li>
+</ul>
+<h5 id="run-tests-across-multiple-backends">Run tests across multiple backends<a class="headerlink" href="#run-tests-across-multiple-backends" title="Permanent link">&para;</a></h5>
+<p>Options for running tests on multiple backends (including all backends) - this includes tests written <a href="#tests-for-specific-backends">specifically for those backends</a>, as well as <a href="#backend-agnostic-testing">backend-agnostic tests</a> supported for those backends.</p>
+<ul>
+<li><code>pytest tests/ -m default</code> or equivalently <code>pytest tests/</code> - run all tests in the <code>default</code> group. The <code>default</code> group consists of the <code>core</code> tests, and those dialects in the <code>default</code> group - currently <code>spark</code> and <code>duckdb</code>.<ul>
+<li>Other groups of dialects can be added and will similarly run with <code>pytest tests/ -m new_dialect_group</code>. Dialects within the current scope of testing and the groups they belong to are defined in the <code>dialect_groups</code> dictionary in <a href="https://github.com/moj-analytical-services/splink/blob/master/tests/decorator.py">tests/decorator.py</a></li>
+</ul>
+</li>
+<li><code>pytest tests/ -m all</code> run all tests for all available dialects</li>
+</ul>
+<p>These all work alongside all the other pytest options, so for instance to run the tests for training <code>probability_two_random_records_match</code> for only <code>duckdb</code>, ignoring warnings, with quiet output, and exiting on the first failure/error:
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>-W<span class="w"> </span>ignore<span class="w"> </span>-q<span class="w"> </span>-x<span class="w"> </span>-m<span class="w"> </span>duckdb<span class="w"> </span>tests/test_estimate_prob_two_rr_match.py
+</code></pre></div></p>
+<details class="tip">
+<summary>Running tests with docker 🐳</summary>
+<p>If you want to test Splink against a specific version of python, the easiest method is to utilise docker 🐳.</p>
+<p>Docker allows you to more quickly and easily install a specific version of python and run the existing test library against it.</p>
+<p>This is particularly useful if you're using py &gt; 3.9.10 (which is currently in use in our tests github action) and need to run a secondary set of tests.</p>
+<p>A pre-built Dockerfile for running tests against python version 3.9.10 can be located within <a href="https://github.com/moj-analytical-services/splink/blob/master/scripts/run_tests.Dockerfile">scripts/run_tests.Dockerfile</a>.</p>
+<p>To run, simply use the following docker command from within a terminal and the root folder of a splink clone:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>run_tests:testing<span class="w"> </span>-f<span class="w"> </span>scripts/run_tests.Dockerfile<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>splink-test<span class="w"> </span>run_tests:testing
+</code></pre></div></p>
+<p>This will both build and run the tests library.</p>
+<p>Feel free to replace <code>run_tests:testing</code> with an image name and tag you're happy with.</p>
+<p>Reusing the same image and tag will overwrite your existing image.</p>
+<p>You can also overwrite the default <code>CMD</code> if you want a different set of <code>pytest</code> command-line options, for example
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>splink-test<span class="w"> </span>run_tests:testing<span class="w"> </span>pytest<span class="w"> </span>-W<span class="w"> </span>ignore<span class="w"> </span>-m<span class="w"> </span>spark<span class="w"> </span>tests/test_u_train.py
+</code></pre></div></p>
+</details>
+<h3 id="tests-in-ci">Tests in CI<a class="headerlink" href="#tests-in-ci" title="Permanent link">&para;</a></h3>
+<p>Splink utilises <a href="https://docs.github.com/en/actions">github actions</a> to run tests for each pull request. This consists of a few independent checks:</p>
+<ul>
+<li>The full test suite is run separately against several different python versions</li>
+<li>The <a href="./examples_index.html">example notebooks</a> are checked to ensure they run without error</li>
+<li>The <a href="./demos/00_Tutorial_Introduction.html">tutorial notebooks</a> are checked to ensure they run without error</li>
+</ul>
+<h2 id="writing-tests">Writing tests<a class="headerlink" href="#writing-tests" title="Permanent link">&para;</a></h2>
+<h3 id="core-tests">Core tests<a class="headerlink" href="#core-tests" title="Permanent link">&para;</a></h3>
+<p>Core tests are treated the same way as ordinary pytest tests. Any test is marked as <code>core</code> by default, and will only be excluded from being a core test if it is decorated using either:</p>
+<ul>
+<li><code>@mark_with_dialects_excluding</code> for <a href="#backend-agnostic-testing">backend-agnostic tests</a>, or</li>
+<li><code>@mark_with_dialects_including</code> for <a href="#tests-for-specific-backends">backend-specific tests</a></li>
+</ul>
+<p>from the <a href="https://github.com/moj-analytical-services/splink/blob/master/tests/decorator.py">test decorator file</a>.</p>
+<h3 id="backend-agnostic-testing">Backend-agnostic testing<a class="headerlink" href="#backend-agnostic-testing" title="Permanent link">&para;</a></h3>
+<p>The majority of tests should be written using the backend-agnostic testing framework. This just provides some small tools which allow tests to be written in a backend-independent way. This means the tests can then by run against <em>all</em> available SQL backends (or a subset, if some lack <em>necessary</em> features for the test).</p>
+<p>As an example, let's consider a test that will run on all dialects, and then break down the various parts to see what each is doing.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">tests.decorator</span> <span class="kn">import</span> <span class="n">mark_with_dialects_excluding</span>
+
+<span class="nd">@mark_with_dialects_excluding</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">test_feature_that_works_for_all_backends</span><span class="p">(</span><span class="n">test_helpers</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">some_other_test_fixture</span><span class="p">):</span>
+    <span class="n">helper</span> <span class="o">=</span> <span class="n">test_helpers</span><span class="p">[</span><span class="n">dialect</span><span class="p">]</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_frame_from_csv</span><span class="p">(</span><span class="s2">&quot;./tests/datasets/fake_1000_from_splink_demos.csv&quot;</span><span class="p">)</span>
+
+    <span class="n">settings_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;link_type&quot;</span><span class="p">:</span> <span class="s2">&quot;dedupe_only&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blocking_rules_to_generate_predictions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l.city = r.city&quot;</span><span class="p">,</span> <span class="s2">&quot;l.surname = r.surname&quot;</span><span class="p">,</span> <span class="s2">&quot;l.dob = r.dob&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;comparisons&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">),</span>
+            <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+            <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;surname&quot;</span><span class="p">),</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;output_column_name&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;comparison_description&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;comparison_levels&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">null_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">),</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">exact_match_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">),</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">levenshtein_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;sql_condition&quot;</span><span class="p">:</span> <span class="s2">&quot;substr(email_l, 1) = substr(email_r, 1)&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;label_for_charts&quot;</span><span class="p">:</span> <span class="s2">&quot;email first character matches&quot;</span><span class="p">,</span>
+                    <span class="p">},</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">else_level</span><span class="p">(),</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="n">linker</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">Linker</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">helper</span><span class="o">.</span><span class="n">extra_linker_args</span><span class="p">())</span>
+
+    <span class="c1"># and then some actual testing logic</span>
+</code></pre></div></td></tr></table></div>
+<p>Firstly you should import the decorator-factory <code>mark_with_dialects_excluding</code>, which will decorate each test function:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">tests.decorator</span> <span class="kn">import</span> <span class="n">mark_with_dialects_excluding</span>
+</code></pre></div></td></tr></table></div>
+<p>Then we define the function, and pass parameters:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="nd">@mark_with_dialects_excluding</span><span class="p">()</span>
+</span><span class="k">def</span> <span class="nf">test_feature_that_works_for_all_backends</span><span class="p">(</span><span class="n">test_helpers</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">some_other_test_fixture</span><span class="p">):</span>
+</code></pre></div></td></tr></table></div>
+<p>The decorator <code>@mark_with_dialects_excluding()</code> will do two things:</p>
+<ul>
+<li>marks the test it decorates with the appropriate custom <code>pytest</code> marks. This ensures that it will be run with tests for each dialect, excluding any that are passed as arguments; in this case it will be run for all dialects, as we have passed no arguments.</li>
+<li>parameterises the test with a string parameter <code>dialect</code>, which will be used to configure the test for that dialect. The test will run for each value of <code>dialect</code> possible, excluding any passed to the decorator (none in this case).</li>
+</ul>
+<p>You should aim to exclude as <em>few</em> dialects as possible - consider if you really need to exclude any. Dialects should only be excluded if the test doesn't make sense for them due to features they lack. The default choice should be the decorator with no arguments <code>@mark_with_dialects_excluding()</code>, meaning the test runs for <em>all</em> dialects.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@mark_with_dialects_excluding</span><span class="p">()</span>
+<span class="hll"><span class="k">def</span> <span class="nf">test_feature_that_works_for_all_backends</span><span class="p">(</span><span class="n">test_helpers</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">some_other_test_fixture</span><span class="p">):</span>
+</span></code></pre></div></td></tr></table></div>
+<p>As well as the parameter <code>dialect</code> (which is provided by the decorator), we must also pass the helper-factory fixture <code>test_helpers</code>. We can additionally pass further <a href="https://docs.pytest.org/en/latest/how-to/fixtures.html">fixtures</a> if needed - in this case <code>some_other_test_fixture</code>.
+We could similarly provide an <em>explicit</em> parameterisation to the test, in which case we would also pass these parameters - see <a href="https://doc.pytest.org/en/latest/example/parametrize.html#set-marks-or-test-id-for-individual-parametrized-test">the pytest docs on parameterisation</a> for more information.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">helper</span> <span class="o">=</span> <span class="n">test_helpers</span><span class="p">[</span><span class="n">dialect</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>The fixture <code>test_helpers</code> is simply a dictionary of the specific-dialect test helpers - here we pick the appropriate one for our test.</p>
+<p>Each helper has the same set of methods and properties, which encapsulate <em>all</em> of the dialect-dependencies. You can find the full set of properties and methods by examining the source for the <a href="https://github.com/moj-analytical-services/splink/blob/master/tests/helpers.py">base class <code>TestHelper</code></a>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">df</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_frame_from_csv</span><span class="p">(</span><span class="s2">&quot;./tests/datasets/fake_1000_from_splink_demos.csv&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we are now actually using a method of the test helper - in this case we are loading a table from a csv to the database and returning it in a form suitable for passing to a Splink linker.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="s2">&quot;comparisons&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="hll">        <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">),</span>
+</span><span class="hll">        <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+</span><span class="hll">        <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;surname&quot;</span><span class="p">),</span>
+</span>        <span class="p">{</span>
+            <span class="s2">&quot;output_column_name&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+</code></pre></div></td></tr></table></div>
+We reference the dialect-specific <a href="../../comparison_library.html">comparison library</a> as <code>helper.cl</code>,</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="p">{</span>
+        <span class="s2">&quot;output_column_name&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;comparison_description&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;comparison_levels&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="hll">            <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">null_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">),</span>
+</span><span class="hll">            <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">exact_match_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">),</span>
+</span><span class="hll">            <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">levenshtein_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+</span>            <span class="p">{</span>
+                <span class="s2">&quot;sql_condition&quot;</span><span class="p">:</span> <span class="s2">&quot;substr(email_l, 1) = substr(email_r, 1)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label_for_charts&quot;</span><span class="p">:</span> <span class="s2">&quot;email first character matches&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+<span class="hll">            <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">else_level</span><span class="p">(),</span>
+</span>        <span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+and the dialect-specific <a href="../../comparison_level_library.html">comparison level library</a> as <code>helper.cll</code>.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="p">{</span>
+<span class="hll">        <span class="s2">&quot;sql_condition&quot;</span><span class="p">:</span> <span class="s2">&quot;substr(email_l, 1) = substr(email_r, 1)&quot;</span><span class="p">,</span>
+</span>        <span class="s2">&quot;label_for_charts&quot;</span><span class="p">:</span> <span class="s2">&quot;email first character matches&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+</code></pre></div></td></tr></table></div>
+We can include raw SQL statements, but we must ensure they are valid for all dialects we are considering, so we should avoid any unusual functions that are not likely to be universal.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">linker</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">Linker</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">helper</span><span class="o">.</span><span class="n">extra_linker_args</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+Finally we instantiate the linker, passing any default set of extra arguments provided by the helper, which some dialects require.</p>
+<p>From this point onwards we will be working with the instantiated <code>linker</code>, and so will not need to refer to <code>helper</code> any more - the rest of the test can be written as usual.</p>
+<h4 id="excluding-some-backends">Excluding some backends<a class="headerlink" href="#excluding-some-backends" title="Permanent link">&para;</a></h4>
+<p>Now let's have a small look at a similar example - only this time we are going to exclude the <code>sqlite</code> backend, as the test relies on features not directly available for that backend. In this example that will be the SQL function <code>split_part</code> which does not exist in the <code>sqlite</code> dialect.</p>
+<div class="admonition warning reminder">
+<p class="admonition-title">Warning</p>
+<p>Tests should be made available to the widest range of backends possible. Only exclude backends if features not shared by all backends are crucial to the test-logic - otherwise consider rewriting things so that all backends are covered.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">tests.decorator</span> <span class="kn">import</span> <span class="n">mark_with_dialects_excluding</span>
+
+<span class="nd">@mark_with_dialects_excluding</span><span class="p">(</span><span class="s2">&quot;sqlite&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_feature_that_doesnt_work_with_sqlite</span><span class="p">(</span><span class="n">test_helpers</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">some_other_test_fixture</span><span class="p">):</span>
+    <span class="n">helper</span> <span class="o">=</span> <span class="n">test_helpers</span><span class="p">[</span><span class="n">dialect</span><span class="p">]</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_frame_from_csv</span><span class="p">(</span><span class="s2">&quot;./tests/datasets/fake_1000_from_splink_demos.csv&quot;</span><span class="p">)</span>
+
+    <span class="n">settings_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;link_type&quot;</span><span class="p">:</span> <span class="s2">&quot;dedupe_only&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blocking_rules_to_generate_predictions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l.city = r.city&quot;</span><span class="p">,</span> <span class="s2">&quot;l.surname = r.surname&quot;</span><span class="p">,</span> <span class="s2">&quot;l.dob = r.dob&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;comparisons&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">),</span>
+            <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+            <span class="n">helper</span><span class="o">.</span><span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;surname&quot;</span><span class="p">),</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;output_column_name&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;comparison_description&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;comparison_levels&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">null_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">),</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">exact_match_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">),</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">levenshtein_level</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;sql_condition&quot;</span><span class="p">:</span> <span class="s2">&quot;split_part(email_l, &#39;@&#39;, 1) = split_part(email_r, &#39;@&#39;, 1)&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;label_for_charts&quot;</span><span class="p">:</span> <span class="s2">&quot;email local-part matches&quot;</span><span class="p">,</span>
+                    <span class="p">},</span>
+                    <span class="n">helper</span><span class="o">.</span><span class="n">cll</span><span class="o">.</span><span class="n">else_level</span><span class="p">(),</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="n">linker</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">Linker</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">helper</span><span class="o">.</span><span class="n">extra_linker_args</span><span class="p">())</span>
+
+    <span class="c1"># and then some actual testing logic</span>
+</code></pre></div></td></tr></table></div>
+<p>The key difference is the argument we pass to the decorator:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="nd">@mark_with_dialects_excluding</span><span class="p">(</span><span class="s2">&quot;sqlite&quot;</span><span class="p">)</span>
+</span><span class="k">def</span> <span class="nf">test_feature_that_doesnt_work_with_sqlite</span><span class="p">(</span><span class="n">test_helpers</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">some_other_test_fixture</span><span class="p">):</span>
+</code></pre></div></td></tr></table></div>
+As above this marks the test it decorates with the appropriate custom <code>pytest</code> marks, but in this case it ensures that it will be run with tests for each dialect <strong>excluding sqlite</strong>. Again <code>dialect</code> is passed as a parameter, and the test will run in turn for each value of <code>dialect</code> <strong>except for 'sqlite'</strong>.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="p">{</span>
+<span class="hll">        <span class="s2">&quot;sql_condition&quot;</span><span class="p">:</span> <span class="s2">&quot;split_part(email_l, &#39;@&#39;, 1) = split_part(email_r, &#39;@&#39;, 1)&quot;</span><span class="p">,</span>
+</span>        <span class="s2">&quot;label_for_charts&quot;</span><span class="p">:</span> <span class="s2">&quot;email local-part matches&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+This line is why we cannot allow <code>sqlite</code> for this test - we make use of the function <code>split_part</code> which is not available in the <code>sqlite</code> dialect, hence its exclusion. We suppose that this particular comparison level is crucial for the test to make sense, otherwise we would rewrite this line to make it run universally. When you come to <a href="#running-tests-locally">run the tests</a>, this test will not run on the <code>sqlite</code> backend.</p>
+<p>If you need to exclude <em>multiple</em> dialects this is also possible - just pass each as an argument. For example, to decorate a test that is not supported on <code>spark</code> <em>or</em> <code>sqlite</code>, use the decorator <code>@mark_with_dialects_excluding("sqlite", "spark")</code>.</p>
+<h3 id="backend-specific-tests">Backend-specific tests<a class="headerlink" href="#backend-specific-tests" title="Permanent link">&para;</a></h3>
+<p>If you intend to write a test for a specific backend, first consider whether it is definitely specific to that backend - if not then a <a href="#backend-agnostic-testing">backend-agnostic test</a> would be preferable, as then your test will be run against <em>many</em> backends.
+If you really do need to test features peculiar to one backend, then you can write it simply as you would an ordinary <code>pytest</code> test. The only difference is that you should decorate it with <code>@mark_with_dialects_including</code> (from <a href="https://github.com/moj-analytical-services/splink/blob/master/tests/decorator.py">tests/decorator.py</a>) - for example:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">DuckDB</label><label for="__tabbed_1_2">Spark</label><label for="__tabbed_1_3">SQLite</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@mark_with_dialects_including</span><span class="p">(</span><span class="s2">&quot;duckdb&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_some_specific_duckdb_feature</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@mark_with_dialects_including</span><span class="p">(</span><span class="s2">&quot;spark&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_some_specific_spark_feature</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@mark_with_dialects_including</span><span class="p">(</span><span class="s2">&quot;sqlite&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_some_specific_sqlite_feature</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>This ensures that the test gets marked appropriately for running when the <code>Spark</code> tests should be run, and excludes it from the set of <code>core</code> tests.</p>
+<p>Note that unlike the exclusive <code>mark_with_dialects_excluding</code>, this decorator will <em>not</em> paramaterise the test with the <code>dialect</code> argument. This is because usage of the <em>inclusive</em> form is largely designed for single-dialect tests. If you wish to override this behaviour and parameterise the test you can use the argument <code>pass_dialect</code>, for example <code>@mark_with_dialects_including("spark", "sqlite", pass_dialect=True)</code>, in which case you would need to write the test in a <a href="#backend-agnostic-testing">backend-independent manner</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="build_docs_locally.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Building Docs" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Building Docs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="releases.html" class="md-footer__link md-footer__link--next" aria-label="Next: Releasing a Package Version" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Releasing a Package Version
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "header.autohide", "search.highlight", "search.share", "search.suggest", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,5096 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="comparison_level.html">
+      
+      
+        <link rel="next" href="comparison_template_library.html">
+      
+      <link rel="icon" href="img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Comparison Library - Splink</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="css/custom.css">
+    
+      <link rel="stylesheet" href="css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentation-for-comparison_library" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Splink" class="md-header__button md-logo" aria-label="Splink" data-md-component="logo">
+      
+  <img src="img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Splink
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Comparison Library
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/moj-analytical-services/splink" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Splink" class="md-nav__button md-logo" aria-label="Splink" data-md-component="logo">
+      
+  <img src="img/favicon.ico" alt="logo">
+
+    </a>
+    Splink
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/moj-analytical-services/splink" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installations.html" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/00_Tutorial_Introduction.html" class="md-nav__link">
+        0. Tutorial introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/01_Prerequisites.html" class="md-nav__link">
+        1. Data prep prerequisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/02_Exploratory_analysis.html" class="md-nav__link">
+        2. Exploratory analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/03_Blocking.html" class="md-nav__link">
+        3. Blocking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/04_Estimating_model_parameters.html" class="md-nav__link">
+        4. Estimating model parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/05_Predicting_results.html" class="md-nav__link">
+        5. Predicting results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/06_Visualising_predictions.html" class="md-nav__link">
+        6. Visualising predictions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/07_Quality_assurance.html" class="md-nav__link">
+        7. Quality assurance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples_index.html" class="md-nav__link">
+        Examples index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          DuckDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          DuckDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_deduplicate_50k_synthetic.html" class="md-nav__link">
+        Deduplicate 50k rows historical persons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_transactions.html" class="md-nav__link">
+        Linking financial transactions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_link_only.html" class="md-nav__link">
+        Linking two tables of persons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_real_time_record_linkage.html" class="md-nav__link">
+        Real time record linkage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_accuracy_analysis_from_labels_column.html" class="md-nav__link">
+        QA from ground truth column
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_pairwise_labels.html" class="md-nav__link">
+        Estimating m probabilities from labels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_quick_and_dirty_persons.html" class="md-nav__link">
+        Quick and dirty persons model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_febrl3.html" class="md-nav__link">
+        Febrl3 Dedupe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_febrl4.html" class="md-nav__link">
+        Febrl4 link-only
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          PySpark
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          PySpark
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demos/example_simple_pyspark.html" class="md-nav__link">
+        Deduplication using Pyspark
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Topic Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Topic Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/backends.html" class="md-nav__link">
+        Splink's SQL backends - Spark, DuckDB etc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/link_type.html" class="md-nav__link">
+        Link type - linking vs deduping
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/querying_splink_results.html" class="md-nav__link">
+        Retrieving and querying Splink results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/feature_engineering.html" class="md-nav__link">
+        Feature Engineering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Comparing Records
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Comparing Records
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/customising_comparisons.html" class="md-nav__link">
+        Defining and customising comparisons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/comparison_templates.html" class="md-nav__link">
+        Out-of-the-box comparisons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5_3" id="__nav_5_5_3_label" tabindex="0">
+          Comparing strings
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Comparing strings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/choosing_comparators.html" class="md-nav__link">
+        Choosing comparators and thresholds
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/comparators.html" class="md-nav__link">
+        String comparators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/phonetic.html" class="md-nav__link">
+        Phonetic transformations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/term-frequency.html" class="md-nav__link">
+        Term-Frequency adjustments
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          Performance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Performance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/drivers_of_performance.html" class="md-nav__link">
+        Run times, performance and linking large data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/blocking_rules.html" class="md-nav__link">
+        Blocking rules for prediction vs estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/optimising_spark.html" class="md-nav__link">
+        Optimising Spark performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topic_guides/salting.html" class="md-nav__link">
+        Salting blocking rules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          Linker API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Linker API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linker.html" class="md-nav__link">
+        Full API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linkerexp.html" class="md-nav__link">
+        Exploratory analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linkerest.html" class="md-nav__link">
+        Estimating model parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linkerpred.html" class="md-nav__link">
+        Predicting results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linkerqa.html" class="md-nav__link">
+        Visualisation and quality assurance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="em_training_session.html" class="md-nav__link">
+        EM Training Session API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SplinkDataFrame.html" class="md-nav__link">
+        SplinkDataFrame API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+          Comparisons API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
+        Comparison
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison_level.html" class="md-nav__link">
+        Comparison Level
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+          Comparisons Library API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons Library API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Comparison Library
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="comparison_library.html" class="md-nav__link md-nav__link--active">
+        Comparison Library
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#library-comparison-apis" class="md-nav__link">
+    Library comparison APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.ExactMatchBase" class="md-nav__link">
+    ExactMatchBase
+  </a>
+  
+    <nav class="md-nav" aria-label="ExactMatchBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.ExactMatchBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" class="md-nav__link">
+    DistanceFunctionAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DistanceFunctionAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.LevenshteinAtThresholdsComparisonBase" class="md-nav__link">
+    LevenshteinAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="LevenshteinAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase" class="md-nav__link">
+    DamerauLevenshteinAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DamerauLevenshteinAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaccardAtThresholdsComparisonBase" class="md-nav__link">
+    JaccardAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="JaccardAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaccardAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroAtThresholdsComparisonBase" class="md-nav__link">
+    JaroAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="JaroAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroWinklerAtThresholdsComparisonBase" class="md-nav__link">
+    JaroWinklerAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="JaroWinklerAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.ArrayIntersectAtSizesComparisonBase" class="md-nav__link">
+    ArrayIntersectAtSizesComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="ArrayIntersectAtSizesComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DateDiffAtThresholdsComparisonBase" class="md-nav__link">
+    DateDiffAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DateDiffAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceInKMAtThresholdsComparisonBase" class="md-nav__link">
+    DistanceInKMAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DistanceInKMAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison_template_library.html" class="md-nav__link">
+        Comparison Template Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison_level_library.html" class="md-nav__link">
+        Comparison Level Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison_level_composition.html" class="md-nav__link">
+        Comparison Composition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="settingseditor/editor.html" class="md-nav__link">
+        Settings Editor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="settings_dict_guide.html" class="md-nav__link">
+        Settings dictionary reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Developers' guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Developers' guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+          Making Changes to Splink
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Making Changes to Splink
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/changing_splink/building_env_locally.html" class="md-nav__link">
+        Building a Virtual Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/changing_splink/lint.html" class="md-nav__link">
+        Linting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/changing_splink/build_docs_locally.html" class="md-nav__link">
+        Building Docs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/changing_splink/testing.html" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/changing_splink/releases.html" class="md-nav__link">
+        Releasing a Package Version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/caching.html" class="md-nav__link">
+        Caching and pipelining
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/debug_modes.html" class="md-nav__link">
+        Understanding and debugging Splink
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/spark_pipelining_and_caching.html" class="md-nav__link">
+        Spark caching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/transpilation.html" class="md-nav__link">
+        Transpilation using sqlglot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6" id="__nav_9_6_label" tabindex="0">
+          Comparisons and comparison levels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons and comparison levels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/comparisons/new_library_comparisons_and_levels.html" class="md-nav__link">
+        Creating new comparisons and comparison levels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/comparisons/extending_library_comparisons_and_levels.html" class="md-nav__link">
+        Extending existing comparisons and comparison levels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_guides/udfs.html" class="md-nav__link">
+        User-Defined Functions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#library-comparison-apis" class="md-nav__link">
+    Library comparison APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.ExactMatchBase" class="md-nav__link">
+    ExactMatchBase
+  </a>
+  
+    <nav class="md-nav" aria-label="ExactMatchBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.ExactMatchBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" class="md-nav__link">
+    DistanceFunctionAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DistanceFunctionAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.LevenshteinAtThresholdsComparisonBase" class="md-nav__link">
+    LevenshteinAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="LevenshteinAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase" class="md-nav__link">
+    DamerauLevenshteinAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DamerauLevenshteinAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaccardAtThresholdsComparisonBase" class="md-nav__link">
+    JaccardAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="JaccardAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaccardAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroAtThresholdsComparisonBase" class="md-nav__link">
+    JaroAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="JaroAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroWinklerAtThresholdsComparisonBase" class="md-nav__link">
+    JaroWinklerAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="JaroWinklerAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.ArrayIntersectAtSizesComparisonBase" class="md-nav__link">
+    ArrayIntersectAtSizesComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="ArrayIntersectAtSizesComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DateDiffAtThresholdsComparisonBase" class="md-nav__link">
+    DateDiffAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DateDiffAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceInKMAtThresholdsComparisonBase" class="md-nav__link">
+    DistanceInKMAtThresholdsComparisonBase
+  </a>
+  
+    <nav class="md-nav" aria-label="DistanceInKMAtThresholdsComparisonBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">API</span>
+      
+    
+      
+      
+        <span class="md-tag">comparisons</span>
+      
+    
+      
+      
+        <span class="md-tag">Levenshtein</span>
+      
+    
+      
+      
+        <span class="md-tag">Jaro-Winkler</span>
+      
+    
+      
+      
+        <span class="md-tag">Jaccard</span>
+      
+    
+      
+      
+        <span class="md-tag">Distance In KM</span>
+      
+    
+      
+      
+        <span class="md-tag">Date Difference</span>
+      
+    
+      
+      
+        <span class="md-tag">Array Intersect</span>
+      
+    
+  </nav>
+
+
+
+  
+  
+
+
+<h1 id="documentation-for-comparison_library">Documentation for <code>comparison_library</code><a class="headerlink" href="#documentation-for-comparison_library" title="Permanent link">&para;</a></h1>
+<p>The <code>comparison_library</code> contains pre-made comparisons available for use directly <a href="./topic_guides/customising_comparisons.html#method-1-using-the-comparisonlibrary">as described in this topic guide</a>.
+However, not every comparison is available for every <a href="./topic_guides/backends.html">Splink-compatible SQL backend</a>.</p>
+<p>The pre-made Splink comparisons available for each SQL dialect are as given in this table:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>duckdb</th>
+<th>spark</th>
+<th>athena</th>
+<th>sqlite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>array_intersect_at_sizes</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>damerau_levenshtein_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>datediff_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>distance_function_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>distance_in_km_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td><code>exact_match</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>jaccard_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>jaro_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>jaro_winkler_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>levenshtein_at_thresholds</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>The detailed API for each of these are outlined below.</p>
+<h2 id="library-comparison-apis">Library comparison APIs<a class="headerlink" href="#library-comparison-apis" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.ExactMatchBase" class="doc doc-heading">
+        <code>splink.comparison_library.ExactMatchBase</code>
+
+
+<a href="#splink.comparison_library.ExactMatchBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.ExactMatchBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_colname_in_charts_label</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.ExactMatchBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with two levels:
+- Exact match
+- Anything else</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>set_to_lowercase</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, sets all entries to lowercase.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, term frequency
+adjustments will be made on the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_colname_in_charts_label</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If true, append col name to label for
+charts.  Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_1" name="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_2" name="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_3" name="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_4" name="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_2">Spark</label><label for="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_3">Athena</label><label for="splink.comparison_library.ExactMatchBase.__init__--__tabbed_1_4">SQLite</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Create comparison with exact match level
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">)</span>
+</code></pre></div>
+Create comparison with exact match level based on a
+substring of first_name as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]{1,4}&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with exact match level
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">)</span>
+</code></pre></div>
+Create comparison with exact match level based on a
+substring of first_name as determined by a regular expression
+``` python
+import splink.spark.spark_comparison_library as cl
+cl.exact_match("first_name", regex_extract="^[A-Z]{1,4}")</p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with exact match level
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">)</span>
+</code></pre></div>
+Create comparison with exact match level based on a
+substring of first_name as determined by a regular expression
+``` python
+import splink.athena.athena_comparison_library as cl
+cl.exact_match("first_name", regex_extract="^[A-Z]{1,4}")</p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with exact match level
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.sqlite.sqlite_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">exact_match</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for exact match that can be included in the Splink
+settings dictionary</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">distance_function_name</span><span class="p">,</span> <span class="n">distance_threshold_or_thresholds</span><span class="p">,</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">higher_is_more_similar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_thres</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with a user-provided distance
+function used to assess middle similarity levels.</p>
+<p>The user-provided distance function must exist in the SQL backend.</p>
+<p>An example of the output with default arguments and setting
+<code>distance_function_name</code> to <code>jaccard</code> and
+<code>distance_threshold_or_thresholds = [0.9,0.7]</code> would be</p>
+<ul>
+<li>Exact match</li>
+<li>Jaccard distance &lt;= 0.9</li>
+<li>Jaccard distance &lt;= 0.7</li>
+<li>Anything else</li>
+</ul>
+<p>Note: distance_function_at_thresholds() is primarily used in the
+backend to create the out-of-the-box cl.XXX_at_thresholds() functions</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_function_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the distance function.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_threshold_or_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The
+threshold(s) to use for the middle similarity level(s).
+Defaults to [1, 2].</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>set_to_lowercase</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, sets all entries to lowercase.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>higher_is_more_similar</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, a higher value of the distance
+function indicates a higher similarity (e.g. jaro_winkler).
+If false, a higher value indicates a lower similarity
+(e.g. levenshtein).</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_thres</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the thresholds specified. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1_3" name="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label><label for="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase.__init__--__tabbed_1_3">Athena</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Apply the <code>jaccard</code> function in a comparison with levels 0.9 and 0.7
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_function_at_thresholds</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">distance_function_name</span> <span class="o">=</span> <span class="s1">&#39;jaccard&#39;</span><span class="p">,</span>
+                   <span class="n">distance_threshold_or_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+                   <span class="p">)</span>
+</code></pre></div>
+Apply the <code>jaccard</code> function in a comparison with levels 0.9 and 0.7 on
+a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_function_at_thresholds</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">distance_function_name</span> <span class="o">=</span> <span class="s1">&#39;jaccard&#39;</span><span class="p">,</span>
+                   <span class="n">distance_threshold_or_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+                   <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]{1,4}</span>
+                   <span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Apply the <code>jaccard</code> function in a comparison with levels 0.9 and 0.7
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_function_at_thresholds</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">distance_function_name</span> <span class="o">=</span> <span class="s1">&#39;jaccard&#39;</span><span class="p">,</span>
+                   <span class="n">distance_threshold_or_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+                   <span class="p">)</span>
+</code></pre></div>
+Apply the <code>jaccard</code> function in a comparison with levels 0.9 and 0.7 on
+a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_function_at_thresholds</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">distance_function_name</span> <span class="o">=</span> <span class="s1">&#39;jaccard&#39;</span><span class="p">,</span>
+                   <span class="n">distance_threshold_or_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+                   <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]{1,4}</span>
+                   <span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Apply the <code>levenshtein_distance</code> function in a comparison with
+levels 1 and 2
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_function_at_thresholds</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">distance_function_name</span> <span class="o">=</span> <span class="s1">&#39;levenshtein_distance&#39;</span><span class="p">,</span>
+                   <span class="n">distance_threshold_or_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                   <span class="n">higher_is_more_similar</span> <span class="o">=</span> <span class="kc">False</span>
+                   <span class="p">)</span>
+</code></pre></div>
+Apply the <code>jaccard</code> function in a comparison with levels 0.9 and 0.7 on
+a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_function_at_thresholds</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">distance_function_name</span> <span class="o">=</span> <span class="s1">&#39;jaccard&#39;</span><span class="p">,</span>
+                   <span class="n">distance_threshold_or_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+                   <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]{1,4}</span>
+                   <span class="p">)</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for a chosen distance function similarity that
+can be included in the Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.LevenshteinAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.LevenshteinAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.LevenshteinAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase">DistanceFunctionAtThresholdsComparisonBase</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">distance_threshold_or_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_lev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with the levenshtein distance used to
+assess middle similarity levels.</p>
+<p>An example of the output with default arguments and setting
+<code>distance_threshold_or_thresholds = [1,2]</code> would be</p>
+<ul>
+<li>Exact match</li>
+<li>Levenshtein distance &lt;= 1</li>
+<li>Levenshtein distance &lt;= 2</li>
+<li>Anything else</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_threshold_or_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The
+threshold(s) to use for the middle similarity level(s).
+Defaults to [1, 2].</p>
+            </div>
+          </td>
+          <td>
+                <code>[1, 2]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_lev</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the thresholds specified for given function. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_3" name="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label><label for="splink.comparison_library.LevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_3">Athena</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Create comparison with levenshtein match levels with distance &lt;=1
+and &lt;=2
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with levenshtein match levels with distance &lt;=1
+and &lt;=2
+on a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^A|B&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with levenshtein match levels with distance &lt;=1
+and &lt;=2
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with levenshtein match levels with distance &lt;=1
+and &lt;=2
+on a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^A|B&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with levenshtein match levels with distance &lt;=1
+and &lt;=2
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with levenshtein match levels with distance &lt;=1
+and &lt;=2
+on a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^A|B&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for Levenshtein similarity that can be included
+in the Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase">DistanceFunctionAtThresholdsComparisonBase</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">distance_threshold_or_thresholds</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_dl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with the damerau-levenshtein distance
+used to assess middle similarity levels.</p>
+<p>An example of the output with default arguments and setting
+<code>distance_threshold_or_thresholds = [1]</code> would be</p>
+<ul>
+<li>Exact match</li>
+<li>Damerau-Levenshtein distance &lt;= 1</li>
+<li>Anything else</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_threshold_or_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The
+threshold(s) to use for the middle similarity level(s).
+Defaults to 1.</p>
+            </div>
+          </td>
+          <td>
+                <code>1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>_type_</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_dl</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p><em>description</em>. If provided, overrides the default m probabilities
+for the thresholds specified for given function. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>_type_</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.DamerauLevenshteinAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Create comparison with demerau-levenshtein match levels with
+distance &lt;= 1
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">damerau_levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with demerau-levenshtein match levels with
+distance &lt;= 1
+on a substring of name column as determined by a regular expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">damerau_levenshtein_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
+                                     <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                                     <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^A|B&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with demerau-levenshtein match levels with
+distance &lt;= 1                ``` python
+import splink.spark.spark_comparison_library as cl
+cl.damerau_levenshtein_at_thresholds("first_name", [1,2])
+<div class="highlight"><pre><span></span><code>Create comparison with demerau-evenshtein match levels with
+distance &lt;= 1
+on a substring of name column as determined by a regular expression
+``` python
+import splink.spark.spark_comparison_library as cl
+cl.damerau_levenshtein_at_thresholds(&quot;first_name&quot;,
+                                     [1,2],
+                                     regex_extract=&quot;^A|B&quot;)
+</code></pre></div></p>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for Damerau-Levenshtein similarity that can be</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+<td></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>included in the Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.JaccardAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.JaccardAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.JaccardAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase">DistanceFunctionAtThresholdsComparisonBase</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.JaccardAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">distance_threshold_or_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_jac</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.JaccardAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with the jaccard distance used to
+assess middle similarity levels.</p>
+<p>An example of the output with default arguments and setting
+<code>distance_threshold_or_thresholds = [0.9,0.7]</code> would be</p>
+<ul>
+<li>Exact match</li>
+<li>Jaccard distance &lt;= 0.9</li>
+<li>Jaccard distance &lt;= 0.7</li>
+<li>Anything else</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_threshold_or_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The
+threshold(s) to use for the middle similarity level(s).
+Defaults to [0.9, 0.7].</p>
+            </div>
+          </td>
+          <td>
+                <code>[0.9, 0.7]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_jac</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the thresholds specified for given function. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+<p>Examples:</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for Jaccard similarity that can be included
+in the Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.JaroAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.JaroAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.JaroAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase">DistanceFunctionAtThresholdsComparisonBase</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">distance_threshold_or_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_jar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.JaroAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with the jaro distance used to
+assess middle similarity levels.</p>
+<p>An example of the output with default arguments and setting
+<code>distance_threshold_or_thresholds = [0.9, 0.7]</code> would be</p>
+<ul>
+<li>Exact match</li>
+<li>Jaro distance &lt;= 0.9</li>
+<li>Jaro distance &lt;= 0.7</li>
+<li>Anything else</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_threshold_or_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The
+threshold(s) to use for the middle similarity level(s).
+Defaults to [0.9, 0.7].</p>
+            </div>
+          </td>
+          <td>
+                <code>[0.9, 0.7]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_jar</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the thresholds specified for given function. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.JaroAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Create comparison with jaro match levels with similarity score &gt;=0.9
+and &gt;=0.7
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with jaro match levels with similarity score &gt;=0.9
+and &gt;=0.7 on a substring of name column as determined by a regular
+expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with jaro match levels with similarity score &gt;=0.9
+and &gt;=0.7
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with jaro match levels with similarity score &gt;=0.9
+and &gt;=0.7 on a substring of name column as determined by a regular
+expression
+``` python
+import splink.spark.spark_comparison_library as cl
+cl.jaro_at_thresholds("first_name", [0.9, 0.7], regex_extract="^[A-Z]")</p>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.JaroWinklerAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.JaroWinklerAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase" href="#splink.comparison_library.DistanceFunctionAtThresholdsComparisonBase">DistanceFunctionAtThresholdsComparisonBase</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">distance_threshold_or_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="n">regex_extract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_string_regex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_to_lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_jw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in <code>col_name</code> with the jaro_winkler distance used to
+assess middle similarity levels.</p>
+<p>An example of the output with default arguments and setting
+<code>distance_threshold_or_thresholds = [0.9, 0.7]</code> would be</p>
+<ul>
+<li>Exact match</li>
+<li>Jaro-Winkler distance &lt;= 0.9</li>
+<li>Jaro-Winkler distance &lt;= 0.7</li>
+<li>Anything else</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distance_threshold_or_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The
+threshold(s) to use for the middle similarity level(s).
+Defaults to [0.9, 0.7].</p>
+            </div>
+          </td>
+          <td>
+                <code>[0.9, 0.7]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>regex_extract</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Regular expression pattern to evaluate a match on.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>valid_string_regex</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>regular expression pattern that if not
+matched will result in column being treated as a null.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_jw</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the thresholds specified for given function. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.JaroWinklerAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Create comparison with jaro_winkler match levels with similarity score</p>
+<blockquote>
+<p>=0.9
+and &gt;=0.7
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_winkler_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with jaro_winkler match levels with similarity score
+=0.9
+and &gt;=0.7 on a substring of name column as determined by a regular
+expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_winkler_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
+                              <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+                              <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]&quot;</span>
+                              <span class="p">)</span>
+</code></pre></div></p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p>Create comparison with jaro_winkler match levels with similarity score</p>
+<blockquote>
+<p>=0.9
+and &gt;=0.7
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_winkler_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</code></pre></div>
+Create comparison with jaro_winkler match levels with similarity score
+=0.9
+and &gt;=0.7 on a substring of name column as determined by a regular
+expression
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">jaro_winkler_at_thresholds</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
+                              <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+                              <span class="n">regex_extract</span><span class="o">=</span><span class="s2">&quot;^[A-Z]&quot;</span>
+                              <span class="p">)</span>
+</code></pre></div></p>
+</blockquote>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for Jaro Winkler similarity that can be included
+in the Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.ArrayIntersectAtSizesComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.ArrayIntersectAtSizesComparisonBase</code>
+
+
+<a href="#splink.comparison_library.ArrayIntersectAtSizesComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">size_or_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">m_probability_or_probabilities_sizes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in array column <code>col_name</code> with various
+intersection sizes to assess similarity levels.</p>
+<p>An example of the output with default arguments and setting
+<code>size_or_sizes = [3, 1]</code> would be</p>
+<ul>
+<li>Intersection has at least 3 elements</li>
+<li>Intersection has at least 1 element (i.e. 1 or 2)</li>
+<li>Anything else (i.e. empty intersection)</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to compare</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>size_or_sizes</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The size(s) of intersection
+to use for the non-'else' similarity level(s). Should be in
+descending order. Defaults to [1].</p>
+            </div>
+          </td>
+          <td>
+                <code>[1]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_sizes</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the sizes specified. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1_3" name="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1_2">Spark</label><label for="splink.comparison_library.ArrayIntersectAtSizesComparisonBase.__init__--__tabbed_1_3">Athena</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">array_intersect_at_sizes</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">array_intersect_at_sizes</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">array_intersect_at_sizes</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for the intersection of arrays that can be included
+in the Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.DateDiffAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.DateDiffAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.DateDiffAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">col_name</span><span class="p">,</span> <span class="n">date_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">date_metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">cast_strings_to_date</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">invalid_dates_as_null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">term_frequency_adjustments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_dat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the data in the date column <code>col_name</code> with various
+date thresholds and metrics to assess similarity levels.</p>
+<p>An example of the output with default arguments and settings
+<code>date_thresholds = [1]</code> and <code>date_metrics = ['day']</code> would be
+- The two input dates are within 1 day of one another
+- Anything else (i.e. all other dates lie outside this range)</p>
+<p><code>date_thresholds</code> and <code>date_metrics</code> should be used in conjunction
+with one another.
+For example, <code>date_thresholds = [10, 12, 15]</code> with
+<code>date_metrics = ['day', 'month', 'year']</code> would result in the following checks:</p>
+<ul>
+<li>The two dates are within 10 days of one another</li>
+<li>The two dates are within 12 months of one another</li>
+<li>And the two dates are within 15 years of one another</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the date column to compare.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>date_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The size(s) of given date
+thresholds, to assess whether two dates fall within a given time
+interval.
+These values can be any integer value and should be used in tandem with
+<code>date_metrics</code>.</p>
+            </div>
+          </td>
+          <td>
+                <code>[1]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>date_metrics</code></td>
+          <td>
+                <code>Union[str, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The unit of time you wish your
+<code>date_thresholds</code> to be measured against.
+Metrics should be one of <code>day</code>, <code>month</code> or <code>year</code>.</p>
+            </div>
+          </td>
+          <td>
+                <code>[&#39;year&#39;]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>cast_strings_to_date</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Set to True to
+enable date-casting when input dates are strings. Also adjust
+date_format if date-strings are not in (yyyy-mm-dd) format.
+Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>date_format(str,</code></td>
+          <td>
+                <code>optional</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Format of input dates if date-strings
+are given. Must be consistent across record pairs. If None
+(the default), downstream functions for each backend assign
+date_format to ISO 8601 format (yyyy-mm-dd).
+Set to "yyyy-MM-dd" for Spark and "%Y-%m-%d" for DuckDB
+when invalid_dates_as_null=True</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>invalid_dates_as_null</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>assign any dates that do not adhere
+to date_format to the null level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>term_frequency_adjustments</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, apply term frequency
+adjustments to the exact match level. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>_type_</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_dat</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the sizes specified. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>_type_</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.DateDiffAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Date Difference comparison at thresholds 10 days, 12 months and 15 years
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">datediff_at_thresholds</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                            <span class="n">date_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+                            <span class="n">date_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]</span>
+                            <span class="p">)</span>
+</code></pre></div></p>
+<p>Datediff comparison with date-casting and unspecified date_format
+(default = %Y-%m-%d)
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">datediff_at_thresholds</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                            <span class="n">date_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+                            <span class="n">date_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                            <span class="n">cast_strings_to_date</span><span class="o">=</span><span class="kc">True</span>
+                            <span class="p">)</span>
+</code></pre></div>
+Datediff comparison with date-casting and specified (non-default)
+date_format
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">datediff_at_thresholds</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                            <span class="n">date_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+                            <span class="n">date_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                            <span class="n">cast_strings_to_date</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">date_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span>
+                            <span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Date Difference comparison at thresholds 10 days, 12 months and 15 years
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">datediff_at_thresholds</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                            <span class="n">date_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+                            <span class="n">date_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]</span>
+                            <span class="p">)</span>
+</code></pre></div></p>
+<p>Datediff comparison with date-casting and unspecified date_format
+(default = %Y-%m-%d)
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">datediff_at_thresholds</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                                <span class="n">date_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+                                <span class="n">date_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                                <span class="n">cast_strings_to_date</span><span class="o">=</span><span class="kc">True</span>
+                                <span class="p">)</span>
+</code></pre></div></p>
+<p>Datediff comparison with date-casting and specified (non-default)
+date_format
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">datediff_at_thresholds</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                            <span class="n">date_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+                            <span class="n">date_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                            <span class="n">cast_strings_to_date</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">date_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span>
+                            <span class="p">)</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for Datediff that can be included in the Splink
+settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase" class="doc doc-heading">
+        <code>splink.comparison_library.DistanceInKMAtThresholdsComparisonBase</code>
+
+
+<a href="#splink.comparison_library.DistanceInKMAtThresholdsComparisonBase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code></p>
+
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">lat_col</span><span class="p">,</span> <span class="n">long_col</span><span class="p">,</span> <span class="n">km_thresholds</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">include_exact_match_level</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m_probability_exact_match</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_or_probabilities_km</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m_probability_else</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A comparison of the coordinates defined in 'lat_col' and
+'long col' giving the haversine distance between them in km.</p>
+<p>An example of the output with default arguments and settings
+<code>km_thresholds = [1]</code> would be</p>
+<ul>
+<li>The two coordinates within 1 km of one another</li>
+<li>Anything else (i.e.  the distance between all coordinate lie outside
+this range)</li>
+</ul>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the date column to compare.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>lat_col</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column containing the lattitude of the
+coordinates.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>long_col</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column containing the longitude of the
+coordinates.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>km_thresholds</code></td>
+          <td>
+                <code>Union[int, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The size(s) of given date
+thresholds, to assess whether two coordinates fall within a given
+distance.</p>
+            </div>
+          </td>
+          <td>
+                <code>[0.1, 1]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>include_exact_match_level</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, include an exact match
+level. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_exact_match</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the exact match level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_or_probabilities_km</code></td>
+          <td>
+                <code>Union[float, list]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the default m probabilities
+for the sizes specified. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>m_probability_else</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If provided, overrides the
+default m probability for the 'anything else' level. Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1_1" name="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1_2" name="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><input id="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1_3" name="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1_1">DuckDB</label><label for="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1_2">Spark</label><label for="splink.comparison_library.DistanceInKMAtThresholdsComparisonBase.__init__--__tabbed_1_3">Athena</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.duckdb.duckdb_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_in_km_at_thresholds</span><span class="p">(</span><span class="s2">&quot;lat_col&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;long_col&quot;</span><span class="p">,</span>
+                           <span class="n">km_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+                        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.spark.spark_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_in_km_at_thresholds</span><span class="p">(</span><span class="s2">&quot;lat_col&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;long_col&quot;</span><span class="p">,</span>
+                           <span class="n">km_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+                        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">splink.athena.athena_comparison_library</span> <span class="k">as</span> <span class="nn">cl</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">distance_in_km_at_thresholds</span><span class="p">(</span><span class="s2">&quot;lat_col&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;long_col&quot;</span><span class="p">,</span>
+                           <span class="n">km_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+                        <span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Comparison</code></td>          <td>
+                <code><a class="autorefs autorefs-internal" title="splink.comparison.Comparison" href="comparison.html#splink.comparison.Comparison">Comparison</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A comparison for Distance in KM that can be included in the
+Splink settings dictionary.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="comparison_level.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Comparison Level" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Comparison Level
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="comparison_template_library.html" class="md-footer__link md-footer__link--next" aria-label="Next: Comparison Template Library" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Comparison Template Library
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "header.autohide", "search.highlight", "search.share", "search.suggest", "navigation.footer"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
