@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from typing import TYPE_CHECKING
+import pandas as pd
 
 from .blocking import _sql_gen_where_condition, block_using_rules_sql
 from .misc import calculate_cartesian, calculate_reduction_ratio
@@ -38,6 +39,7 @@ def cumulative_comparisons_generated_by_blocking_rules(
     linker: Linker,
     blocking_rules,
     output_chart=True,
+    output_type: str = "dictionary"
 ):
     # Deepcopy our original linker so we can safely adjust our settings.
     # This is particularly important to ensure we don't overwrite our
@@ -138,4 +140,13 @@ def cumulative_comparisons_generated_by_blocking_rules(
 
     linker._analyse_blocking_mode = False
 
-    return br_comparisons
+    if output_type == "dictionary":
+        return br_comparisons
+    
+    if output_type == "dataframe":
+        return pd.DataFrame(br_comparisons)
+
+
+
+
+
